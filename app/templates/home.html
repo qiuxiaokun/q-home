@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript">
+    var _speedMark = new Date();
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">
+<meta name="description" content="小秋 的个人网站，采用的 Python Django 框架开发而成，从兴趣到实践，意在学习、分享与记录。技术专注于 Python 与后端开发，包括 Python、Django、Flask、HTML、CSS、JavaScript、Redis、Linux、Mongodb 等。">
+<meta name="keywords" content="编程,Python,Django,HTML,CSS,JavaScript,Redis,Linux,Flask,个人网站">
+<title>Welcome to 小秋HOME</title>
+<link href="/static/css/stylesheet.css" rel="stylesheet" type="text/css">
+<link href="/static/css/home.css" rel="stylesheet" type="text/css">
+<script src="/static/js/jquery-1.8.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var auto_adjust_imgs = $('.auto_adjust');
+
+        function auto_adjust() {
+            var window_width = $(window).width();
+            for (i=0; i < auto_adjust_imgs.length; i++) {
+                var image = $(auto_adjust_imgs[i]);
+                if (window_width <= 1275) {
+                    var offset = $(window).width() - image.width();
+                } else {
+                    var offset = 0;
+                }
+                if (offset > 0) {
+                    offset = 0;
+                }
+                if (image.width() + offset < 440) {
+                    offset = 440 - image.width();
+                }
+                image.css('margin-left', offset);
+            }
+        }
+
+        $(window).resize(function(){
+            auto_adjust();
+        });
+
+        auto_adjust();
+    });
+</script>
+<script>
+    $(document).ready(function(e) {
+        var menu = $('#nav_bar');
+        var scroll_to_top_buttom = $('.back-to-top');
+        $('#menu_btn').click(function(e) {
+            if (menu.css('display') == 'none') {
+                menu.slideDown(200);
+            } else {
+                menu.slideUp(200);
+            }
+            return false;
+        });
+        $('body').click(function(e) {
+           if($(e.target).parent().attr('id') != 'nav_bar' && menu.css('display') != 'none' && $(document).width() <= 680) {
+                menu.slideUp(200);
+                return false;
+           }
+        });
+        $(document).scroll(function(){
+            if($(document).scrollTop() > 560) {
+                scroll_to_top_buttom.fadeIn(100);
+            } else {
+                scroll_to_top_buttom.fadeOut(100);
+            }
+        });
+        scroll_to_top_buttom.click(function(){
+            $('html, body').animate({scrollTop: 0}, 200);
+        });
+    });
+</script>
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=28573129" charset="UTF-8"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-nav">
+            <div class="header-nav-content">
+                <a class="logo-click" href="/">
+                    <div class="logo fltlft">
+                        <div class="logo-top">
+                            <span>XIAOQIU</span>
+                        </div>
+                        <div class="logo-buttom">
+                            <span>SITE</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="menu-btn fltrt" id="menu_btn">
+                    <img src="/static/img/menu.png" width="40">
+                </a>
+                <div class="nav-bar fltrt" id="nav_bar">
+                    <a class="nav-item focus" href="/">HOME</a>
+                    <a class="nav-item" href="/work/note/">工作笔记</a>
+                    <a class="nav-item" href="http://www.qiuxiaokun.com/">户外</a>
+                    <a class="nav-item" href="http://ad.qiuxiaokun.com/admin/">广告</a>
+                    <a class="nav-item" href="http://www.qiuxiaokun.com/me/">关于</a>
+                </div>
+                <div class="clearfloat"></div>
+            </div>
+        <!-- end .header-nav --></div>
+    </div>
+    <div class="welcome">
+        <div class="top-back-img">
+            <img class="auto_adjust" id="top_img" src="/static/img/1.jpg" width="1275" style="display: block;">
+        </div>
+        <div class="top-txt-box" style="background-image: url(/static/img/cover.png); background-repeat: repeat;">
+            <div class="top-txt-content">
+                <div class="smile">
+                    <h1>:-)</h1>
+                </div>
+                <div class="say-hi">
+                    <h2>Hi, I'm Xiaoqiu.</h2>
+                </div>
+                <div class="preface">
+                    <p>Yes. Qiu is my last name.<br>And, as you can see, I like outside sports.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        <div class="about-img-left fltlft">
+            <img id="about_img_left" src="/static/img/cl.png" width="330">
+        </div>
+        <div class="about-txt-box fltlft">
+            <div class="about-title">
+                <h2>ABOUT ME</h2>
+            </div>
+            <div class="about-txt">
+                <p>I am a software engineer based in Guangzhou, China. In my free time, I am excited to explore anything I am interested or related to my work. They can always help me to improve myself, open my eyes and get ready to the near future.</p>
+            </div>
+        </div>
+        <div class="about-img-right fltrt">
+            <img id="about_img_right" src="/static/img/cr.png" width="180">
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+    <div class="work">
+        <div class="work-content">
+            <div class="work-content-cont" style="background-image: url(/static/img/cover.png); background-repeat: repeat;">
+                <div class="work-title">
+                    <h2>WORK</h2>
+                </div>
+                <div class="work-ctl-img-box">
+                    <img id="my_focus" src="/static/img/tls.png" width="750">
+                </div>
+                <div class="work-txt">
+                    <p>Here are my mainly used or focused programming languages, techniques or tools.<br>
+Most of the time, I am a back-end developer. You can find some of my personal open-source projects from my <b><a href="https://github.com/qiuxiaokun">GITHUB</a></b>. <br>
+Besides, Web development, Operation & Maintenance  and Cloud computing are my concentration areas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="work-img">
+            <img class="auto_adjust" src="/static/img/2.jpg" width="1275">
+        </div>
+    </div>
+    <div class="contact">
+        <div class="contact-content-box">
+            <div class="contact-title">
+                <h2>WHAT'S NEXT</h2>
+            </div>
+            <div class="contact-content">
+                <p>To find more about me, do not hesitate to visit my <b><a href="/blog/">BLOG</a></b>,<br>
+or contact me by ...</p>
+            </div>
+            <div class="contact-items">
+                <div class="contact-items-row">
+                    <div class="contact-item fltlft">
+                        <img src="/static/img/email.png">
+                        <span><a href="#">xiaoqiu2794@gmail.com</a></span>
+                    </div>
+                    <div class="contact-item fltlft">
+                        <img src="/static/img/form.png">
+                        <span><a href="/contact/">filling contact form</a></span>
+                    </div>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="contact-items-row">
+                    <div class="contact-item fltlft">
+                        <img src="/static/img/qq.png">
+                        <span><a href="#">450662262</a></span>
+                    </div>
+                    <div class="contact-item fltlft">
+                        <img src="/static/img/weibo.png">
+                        <span><a href="#">sina weibo</a></span>
+                    </div>
+                    <div class="clearfloat"></div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-bk-cover">
+            <img src="/static/img/map.png" width="1275">
+        </div>
+    </div>
+    <div class="back-to-top" style="display: none; position: fixed; right: 30px; bottom: 30px; cursor: pointer; z-index: 10000;">
+        <img src="/static/img/top.png" width="40">
+    </div>
+    <div class="footer">
+        <div class="copyright">
+            <span>Designed by <b>Xiaoqiu</b>.</span> <span>Copyright 2012 - 2017 <b>小秋HOME</b>.</span>
+        </div>
+        <div class="footer-img">
+            <img src="/static/img/footer.jpg" width="1275">
+        </div>
+    </div>
+<!-- end .container --></div>
+</body>
+</html>
